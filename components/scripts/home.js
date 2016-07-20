@@ -1,11 +1,5 @@
 
 
-//------------------------------------------
-
-
-//------------------------------------------
-
-
 window.onload = function() {
     document.getElementById('container-lion').style.opacity = 1;
     // var lion = document.getElementById('lion');
