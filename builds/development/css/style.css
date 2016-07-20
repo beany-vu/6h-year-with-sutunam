@@ -116,8 +116,6 @@
   left: 75%; }
 
 .home .container-lion {
-  opacity: 0;
-  transition: all 1s ease-out;
   will-change: opacity; }
 
 .home .background-lion {
