@@ -1,0 +1,13 @@
+.container-heading {
+    position: fixed;
+    width: 1920px;
+    top: 58%;
+    left: 50%;
+    transform: translate3d(-50%, 0px, 0px);
+    height: 1080px;
+    z-index: 3;
+    will-change: transform;
+    h1 {
+        text-align: center;
+    }
+}
