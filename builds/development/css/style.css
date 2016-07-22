@@ -1,132 +1,78 @@
-.full-screen {
+@font-face {
+  font-family: "gotham-black";
+  src: url("../fonts/gotham-black.eot");
+  src: url("../fonts/gotham-black.eot#iefix") format("embedded-opentype"), url("../fonts/gotham-black.woff") format("woff"), url("../fonts/gotham-black.ttf") format("truetype"), url("../fonts/gotham-black.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "gotham-light";
+  src: url("../fonts/gothamlight.eot");
+  src: url("../fonts/gothamlight.eot#iefix") format("embedded-opentype"), url("../fonts/gothamlight.woff") format("woff"), url("../fonts/gothamlight.ttf") format("truetype"), url("../fonts/gothamlight.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "gotham-medium";
+  src: url("../fonts/gotham-medium.eot");
+  src: url("../fonts/gotham-medium.eot#iefix") format("embedded-opentype"), url("../fonts/gotham-medium.woff") format("woff"), url("../fonts/gotham-medium.ttf") format("truetype"), url("../fonts/gotham-medium.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "gotham-book";
+  src: url("../fonts/gotham-book.eot");
+  src: url("../fonts/gotham-book.eot#iefix") format("embedded-opentype"), url("../fonts/gotham-book.woff") format("woff"), url("../fonts/gotham-book.ttf") format("truetype"), url("../fonts/gotham-book.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "gotham-bold";
+  src: url("../fonts/gotham-bold.eot");
+  src: url("../fonts/gotham-bold.eot#iefix") format("embedded-opentype"), url("../fonts/gotham-bold.woff") format("woff"), url("../fonts/gotham-bold.ttf") format("truetype"), url("../fonts/gotham-bold.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "fonts/gotham-xlight";
+  src: url("../fonts/gotham-xlight.eot");
+  src: url("../fonts/gotham-xlight.eot#iefix") format("embedded-opentype"), url("../fonts/gotham-xlight.woff") format("woff"), url("../fonts/gotham-xlight.ttf") format("truetype"), url("../fonts/gotham-xlight.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "gotham-exlight";
+  src: url("../fonts/gothamexlight.eot");
+  src: url("../fonts/gothamexlight.eot#iefix") format("embedded-opentype"), url("../fonts/gothamexlight.woff") format("woff"), url("../fonts/gothamexlight.ttf") format("truetype"), url("../fonts/gothamexlight.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+.container-lion {
+  z-index: 1; }
+
+.container-overlay .overlay {
+  z-index: 2; }
+
+.container-overlay .overlay-lion {
+  display: block;
   position: fixed;
-  top: 0;
-  right: 0;
   left: 0;
-  bottom: 0;
-  will-change: transform, opacity;
-  transform: translateZ(0); }
-
-.recombine {
-  animation-duration: 1.5s;
-  animation-fill-mode: both;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-  will-change: transform;
-  transform: translateZ(0); }
-
-@keyframes recombine1 {
-  from {
-    transform: translate(-1500px, -1500px) rotate(-45deg) scale(2, 2); }
-  to {
-    transform: translate(0, 0) rotate(0deg) scale(1, 1); } }
-
-@keyframes recombine2 {
-  from {
-    transform: translate(-400px, -1000px) rotate(10deg) scale(2, 2); }
-  to {
-    transform: translate(0, 0) rotate(0deg) scale(1, 1); } }
-
-@keyframes recombine3 {
-  from {
-    transform: translate(-1000px, 200px) rotate(10deg) scale(2, 2); }
-  to {
-    transform: translate(0, 0) rotate(0deg) scale(1, 1); } }
-
-@keyframes recombine4 {
-  from {
-    transform: translate(-1000px, -500px) rotate(10deg) scale(0.6, 0.6); }
-  to {
-    transform: translate(0, 0) rotate(0deg) scale(1, 1); } }
-
-@keyframes recombine5 {
-  from {
-    transform: translate(-200px, -200px) rotate(10deg) scale(2, 2); }
-  to {
-    transform: translate(0, 0) rotate(0deg) scale(1, 1); } }
-
-@keyframes recombine6 {
-  from {
-    transform: translate(-2000px, -400px) rotate(50deg) scale(2, 2); }
-  to {
-    transform: translate(0, 0) rotate(0deg) scale(1, 1); } }
-
-@keyframes recombine7 {
-  from {
-    transform: translate(-200px, 400px) rotate(40deg) scale(2, 2); }
-  to {
-    transform: translate(0, 0) rotate(0deg) scale(1, 1); } }
-
-@keyframes recombine8 {
-  from {
-    transform: translate(-400%, -400%) rotate(20deg) scale(2, 2); }
-  to {
-    transform: translate(0, 0) rotate(0deg) scale(1, 1); } }
-
-#container-triangle .triangle {
-  position: fixed;
-  will-change: transform;
-  transform: translateZ(0); }
-
-#container-triangle .triangle1 {
-  background: url(../images/home/triangle/triangle01.svg) no-repeat;
-  background-size: 100%;
-  width: 746px;
-  height: 595px;
-  left: -100px;
-  bottom: -100px; }
-
-#container-triangle .triangle2 {
-  background: url(../images/home/triangle/triangle02.svg) no-repeat;
-  background-size: 100%;
-  width: 261px;
-  height: 128px;
-  left: 35%;
-  bottom: -10%; }
-
-#container-triangle .triangle3 {
-  background: url(../images/home/triangle/triangle03.svg) no-repeat;
-  background-size: 100%;
-  width: 315px;
-  height: 251px;
-  right: 350px;
-  bottom: 50px; }
-
-#container-triangle .triangle4 {
-  background: url(../images/home/triangle/triangle04.svg) no-repeat;
-  background-size: 100%;
-  width: 39px;
-  height: 66px;
-  left: 20%;
-  top: 20%; }
-
-#container-triangle .triangle5 {
-  background: url(../images/home/triangle/triangle05.svg) no-repeat;
-  background-size: 100%;
-  width: 21px;
-  height: 24px;
-  left: 80%;
-  top: 20%; }
-
-#container-triangle .triangle6 {
-  background: url(../images/home/triangle/triangle06.svg) no-repeat;
-  background-size: 100%;
-  width: 182px;
-  height: 155px;
-  top: -10%;
-  left: 75%; }
-
-.home .container-lion {
-  will-change: opacity; }
-
-.home .background-lion {
-  background-size: cover;
-  background: #e9551b url(../images/home/background_lion_gradient.png) no-repeat; }
-
-.home .lion {
-  position: fixed;
-  top: 0;
   right: 0;
-  bottom: 0;
-  left: 0;
-  will-change: transform;
-  transform: translateZ(0); }
+  top: 45%;
+  height: 550px;
+  background: url(../images/home/overlay.png) no-repeat;
+  background-position: 50%;
+  background-size: 120%;
+  opacity: 0; }
+
+.container-heading {
+  position: fixed;
+  width: 1920px;
+  top: 58%;
+  left: 50%;
+  transform: translate3d(-50%, 0px, 0px);
+  height: 1080px;
+  z-index: 3;
+  will-change: transform; }
+  .container-heading h1 {
+    text-align: center; }
