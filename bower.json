@@ -23,6 +23,7 @@
   "dependencies": {
     "raphael": "^2.2.1",
     "jquery": "^3.1.0",
-    "gsap": "^1.19.0"
+    "gsap": "^1.19.0",
+    "bezier-easing": "^1.0.0"
   }
 }

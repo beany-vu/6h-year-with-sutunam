@@ -28,16 +28,16 @@ window.onload = function() {
         delete type_instance;
     }
     delete lion;
-    TweenLite.to(document.getElementById('container-lion'), 2, {opacity: 1, ease:  Sine.easeInOut});
+    TweenLite.to(document.getElementById('container-lion'), 3, {opacity: 1, ease:  Sine.easeInOut});
 
-    TweenLite.from(document.getElementsByClassName('recombine1'), 2.5, {x: '-1500', y: '-1500', scale: 2, ease:  Power3.easeOut});
-    TweenLite.from(document.getElementsByClassName('recombine2'), 2.5, {x: '-400', y: '-1000', scale: 2, ease: Power3.easeOut});
-    TweenLite.from(document.getElementsByClassName('recombine3'), 2.5, {x: '-1000', y: '200', scale: 2, ease:  Power3.easeOut});
-    TweenLite.from(document.getElementsByClassName('recombine4'), 2.5, {x: '-1000', y: '-500', scale: 2, ease:  Power3.easeOut});
-    TweenLite.from(document.getElementsByClassName('recombine5'), 2.5, {x: '800', y: '800', scale: 2, ease:  Power3.easeOut});
-    TweenLite.from(document.getElementsByClassName('recombine6'), 2.5, {x: '-2000', y: '-400', scale: 2, ease:  Power3.easeOut})
-    TweenLite.from(document.getElementsByClassName('recombine7'), 2.5, {x: '-200', y: '400', scale: 2, ease: Power3.easeOut});
-    TweenLite.from(document.getElementsByClassName('recombine8'), 2.5, {x: '-400', y: '-400', scale: 2, ease: Power3.easeOut});
+    TweenLite.from(document.getElementsByClassName('recombine1'), 3, {x: '-1500', y: '-1500', scale: 2, rotation: -45, ease:  Power2.easeOut});
+    TweenLite.from(document.getElementsByClassName('recombine2'), 3, {x: '-400', y: '-1000', rotation: -45, ease: Power2.easeOut});
+    TweenLite.from(document.getElementsByClassName('recombine3'), 3, {x: '0', y: '-1000', scale: 2, rotation: -45, ease:  Power2.easeOut});
+    TweenLite.from(document.getElementsByClassName('recombine4'), 3, {x: '600', y: '-100', rotation: -45, ease:  Power2.easeOut});
+    TweenLite.from(document.getElementsByClassName('recombine5'), 3, {x: '800', y: '800', scale: 2, rotation: -45, ease:  Power2.easeOut});
+    TweenLite.from(document.getElementsByClassName('recombine6'), 3, {x: '-2000', y: '-400', rotation: -45, ease:  Power2.easeOut})
+    TweenLite.from(document.getElementsByClassName('recombine7'), 3, {x: '-200', y: '400', scale: 2, rotation: -45, ease: Power2.easeOut});
+    TweenLite.from(document.getElementsByClassName('recombine8'), 3, {x: '-400', y: '-400', rotation: -45, ease: Power2.easeOut});
 
     // add animation for the triangle, make them fade in up with a little rotation
     TweenLite.to(document.getElementById('container-triangle'), 2.5, {opacity: 1}).delay(1.5);
@@ -50,4 +50,6 @@ window.onload = function() {
 
     // the overlay above of lion
     TweenLite.to(document.getElementById('overlay-lion'), 1, {opacity: 1, ease: Power4.easeOut}).delay(2.5);
+    
+    
 }
