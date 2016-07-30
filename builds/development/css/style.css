@@ -136,7 +136,8 @@
     .heading-lion .heading .txt-dynamic .txt-word3 {
       position: absolute;
       left: 0;
-      opacity: 0; }
+      opacity: 0;
+      transform: translateY(30px); }
 
 .heading-lion .txt-small {
   display: block;

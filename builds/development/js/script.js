@@ -64,6 +64,10 @@ window.onload = function() {
     timeline.add('heading', 3.5);
     timeline.add('sub-heading', 3.8);
     timeline.add('scroll-btn', 4.5);
+    timeline.add('fade-out-txt2', 5);
+    timeline.add('fade-in-txt3', 5.5);
+    timeline.add('fade-out-txt3',6);
+    timeline.add('fade-in-txt4', 6.5);
 
     // specify timeline
     timeline.to(document.getElementById('container-lion'), 3, {opacity: 1, ease:  Sine.easeInOut}, 'lion');
@@ -90,4 +94,12 @@ window.onload = function() {
     timeline.to(document.getElementById('heading-txt-small'), 1, {opacity: 1, y: '0',ease: Power2.easeOut}, 'sub-heading');
 
     timeline.to(document.getElementById('button-lion'), 1, {opacity: 1,ease: Power2.easeOut}, 'scroll-btn');
+
+    timeline.to(document.getElementById('txt2'), 1, {opacity: 0, y: -30, ease: Power1.easeOut}, 'fade-out-txt2');
+    timeline.to(document.getElementById('txt3'), 1, {opacity: 1, y: 0, ease: Power1.easeOut}, 'fade-in-txt3').delay(0.5);
+
+    timeline.to(document.getElementById('txt3'), 1, {opacity: 0, y: -30, ease: Power1.easeOut}, 'fade-out-txt3');
+    timeline.to(document.getElementById('txt4'), 1, {opacity: 1, y: 0, ease: Power1.easeOut}, 'fade-in-txt4').delay(0.5);
+
+
 }
