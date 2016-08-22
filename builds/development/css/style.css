@@ -119,9 +119,11 @@
   font-weight: 100; }
 
 .heading-lion .heading {
-  transform: translateY(50px);
+  backface-visibility: hidden;
+  transform: translateY(50px) translateZ(0);
   display: block;
-  opacity: 0; }
+  opacity: 0;
+  will-change: transform, opacity; }
   .heading-lion .heading #txt1, .heading-lion .heading #txt2 {
     display: inline-block; }
   .heading-lion .heading span {
@@ -137,11 +139,13 @@
       position: absolute;
       left: 0;
       opacity: 0;
-      transform: translateY(30px); }
+      transform: translateY(50%) translateZ(0);
+      will-change: opacity, transform;
+      backface-visibility: hidden; }
 
 .heading-lion .txt-small {
   display: block;
-  transform: translateY(50px);
+  transform: translateY(50px) translateZ(0);
   opacity: 0;
   padding: 20px 0 0 20px;
   text-align: center;
@@ -149,7 +153,8 @@
   font-size: 17px;
   letter-spacing: 10px;
   margin-left: 30px;
-  text-shadow: 0 0 0.1px rgba(0, 0, 0, 0.1); }
+  text-shadow: 0 0 0.1px rgba(0, 0, 0, 0.1);
+  backface-visibility: hidden; }
   .heading-lion .txt-small .txt-bold {
     color: #a52a2a; }
 
@@ -157,14 +162,14 @@
   position: fixed;
   width: 100px;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateZ(0);
+  will-change: opacity, transform;
   bottom: 10%;
   right: 0;
   text-align: center;
   z-index: 4;
-  opacity: 0; }
+  opacity: 0;
+  backface-visibility: hidden; }
   .btn-wrapper button {
     border: 0;
     outline: 0;
@@ -172,9 +177,7 @@
     background-size: 22px 38px;
     height: 38px;
     width: 22px;
-    -webkit-transform: scale(0.78);
-    -ms-transform: scale(0.78);
-    transform: scale(0.78);
+    transform: scale(0.78) translateZ(0);
     display: block;
     top: -30px;
     left: 50%;
@@ -191,7 +194,8 @@
       height: 4px;
       background: #a52a2a;
       border-radius: -5%;
-      animation: scroll-wheel 1.8s linear 0s infinite normal none; }
+      animation: scroll-wheel 1.8s linear 0s infinite normal none;
+      will-change: transform, opacity; }
   .btn-wrapper p {
     margin: 0;
     padding-top: 10px;

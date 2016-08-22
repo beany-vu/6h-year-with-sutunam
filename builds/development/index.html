@@ -6,6 +6,7 @@
     <title>Sutu5</title>
     <style>
         .full-screen {
+            contain: strict;
             position: fixed;
             top: 0;
             right: 0;
@@ -25,6 +26,7 @@
         }
 
         .lion {
+            contain: strict;
             position: fixed;
             top: 0;
             right: 0;
@@ -32,6 +34,7 @@
             left: 0;
             will-change: transform;
             transform: translateZ(0);
+            backface-visibility: hidden;
         }
 
         #container-triangle {
@@ -45,6 +48,7 @@
         }
 
         .triangle1 {
+            contain: strict;
             background: url(images/home/triangle/triangle01.svg) no-repeat;
             background-size: 100%;
             width: 746px;
@@ -54,6 +58,7 @@
         }
 
         .triangle2 {
+            contain: strict;
             background: url(images/home/triangle/triangle02.svg) no-repeat;
             background-size: 100%;
             width: 261px;
@@ -63,6 +68,7 @@
         }
 
         .triangle3 {
+            contain: strict;
             background: url(images/home/triangle/triangle03.svg) no-repeat;
             background-size: 100%;
             width: 315px;
@@ -72,6 +78,7 @@
         }
 
         .triangle4 {
+            contain: strict;
             background: url(images/home/triangle/triangle04.svg) no-repeat;
             background-size: 100%;
             width: 39px;
@@ -81,6 +88,7 @@
         }
 
         .triangle5 {
+            contain: strict;
             background: url(images/home/triangle/triangle05.svg) no-repeat;
             background-size: 100%;
             width: 21px;
@@ -90,6 +98,7 @@
         }
 
         .triangle6 {
+            contain: strict;
             background: url(images/home/triangle/triangle06.svg) no-repeat;
             background-size: 100%;
             width: 182px;
@@ -777,7 +786,7 @@
                     <span id="txt1" class="txt txt-fixed">5</span>
                     <span txt="txt2-wrapper" class="txt-dynamic">
                         <span id="txt2" class="txt-word txt-word1">years</span>
-                        <span id="txt3" class="txt-word txt-word2">project</span>
+                        <span id="txt3" class="txt-word txt-word2">projects</span>
                         <span id="txt4" class="txt-word txt-word3">years</span>
                     </span>
                 </span>
