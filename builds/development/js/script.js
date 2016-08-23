@@ -45,9 +45,11 @@ window.onload = function() {
     timeline.add('scroll-btn', 4.5);
     timeline.add('txt2-to-txt3', 5.5);
     timeline.add('txt3-to-txt4', 6.5);
+    timeline.add('float-up-lion',7.5)
 
     timeline.addPause('txt2-to-txt3');
     timeline.addPause('txt3-to-txt4');
+    timeline.addPause('float-up-lion');
 
     // specify timeline
     timeline.to(document.getElementById('overlay-lion'), 0.1, {opacity: 1}, 'lion');
@@ -70,10 +72,10 @@ window.onload = function() {
     timeline.from(document.getElementById('triangle6'), 2.5, {y: '200%', rotation: -45, ease: Power4.easeOut}, 'triangle');
 
 
-    timeline.to(document.getElementById('heading'), 1, {opacity: 1, y: '0',ease: Power2.easeOut}, 'heading');
-    timeline.to(document.getElementById('heading-txt-small'), 1, {opacity: 1, y: '0',ease: Power2.easeOut}, 'sub-heading');
+    timeline.to(document.getElementById('heading'), 1, {opacity: 1, y: '0'}, 'heading');
+    timeline.to(document.getElementById('heading-txt-small'), 1, {opacity: 1, y: '0'}, 'sub-heading');
 
-    timeline.to(document.getElementById('button-lion'), 1, {opacity: 1,ease: Power2.easeOut}, 'scroll-btn');
+    timeline.to(document.getElementById('button-lion'), 1, {opacity: 1}, 'scroll-btn');
 
     timeline.to(document.getElementById('txt2'), 1 , {opacity:0, y: '-50%'}, 'txt2-to-txt3');
     timeline.to(document.getElementById('txt3'), 1 , {opacity:1, y: '0'}, 'txt2-to-txt3');
@@ -81,8 +83,28 @@ window.onload = function() {
     timeline.to(document.getElementById('txt3'), 1 , {opacity:0, y: '-50%'}, 'txt3-to-txt4');
     timeline.to(document.getElementById('txt4'), 1 , {opacity:1, y: '0'}, 'txt3-to-txt4');
 
-    timeline.play();
+    timeline.to(document.getElementsByClassName('recombine1'), 1, {y: '-60%', ease: Power1.easeIn},'float-up-lion');
+    timeline.to(document.getElementsByClassName('recombine2'), 1.1, {y: '-60%', ease: Power1.easeIn},'float-up-lion');
+    timeline.to(document.getElementsByClassName('recombine3'), 1.2, {y: '-60%', ease: Power1.easeIn},'float-up-lion');
+    timeline.to(document.getElementsByClassName('recombine4'), 1.3, {y: '-60%', ease: Power1.easeIn},'float-up-lion');
+    timeline.to(document.getElementsByClassName('recombine5'), 1.4, {y: '-60%', ease: Power1.easeIn},'float-up-lion');
+    timeline.to(document.getElementsByClassName('recombine6'), 1.5, {y: '-60%', ease: Power1.easeIn},'float-up-lion');
+    timeline.to(document.getElementsByClassName('recombine7'), 1.6, {y: '-60%', ease: Power1.easeIn},'float-up-lion');
+    timeline.to(document.getElementsByClassName('recombine8'), 1.7, {y: '-60%', ease: Power1.easeIn},'float-up-lion');
+    timeline.to(document.getElementById('container-lion'), 1.7, {opacity: 0, ease:  Sine.easeInOut}, 'float-up-lion');
+    timeline.to(document.getElementById('heading'), 1, {opacity: 0}, 'float-up-lion');
+    timeline.to(document.getElementById('heading-txt-small'), 1, {opacity: 0,}, 'float-up-lion');
+    timeline.to(document.getElementById('button-lion'), 1, {opacity: 0}, 'float-up-lion');
+    timeline.to(document.getElementById('container-triangle'), 1.7, {opacity: 0}, 'float-up-lion');
+    timeline.to(document.getElementById('triangle1'), 1.7, {y: '-100%', ease: Power1.easeIn}, 'float-up-lion');
+    timeline.to(document.getElementById('triangle2'), 1.7, {y: '-100%', ease: Power1.easeIn}, 'float-up-lion');
+    timeline.to(document.getElementById('triangle4'), 1.7, {y: '-100%', ease: Power1.easeIn}, 'float-up-lion');
+    timeline.to(document.getElementById('triangle3'), 1.7, {y: '-100%', ease: Power1.easeIn}, 'float-up-lion');
+    timeline.to(document.getElementById('triangle5'), 1.7, {y: '-100%', ease: Power1.easeIn}, 'float-up-lion');
+    timeline.to(document.getElementById('triangle6'), 1.7, {y: '-100%', ease: Power1.easeIn}, 'float-up-lion');
+    timeline.to(document.getElementById('overlay-lion'), 0.1, {opacity: 0}, 'float-up-lion');
 
+    timeline.play();
     StnNavigation.detectNextPrev(timeline, 'scroll-btn');
 
 }
