@@ -108,13 +108,14 @@
   background: #221f26;
   opacity: 0;
 }
-.container-current-illustration{
+.container-current-illustration,
+.container-hidden-illustration{
   opacity: 0;
 }
 .container-current-illustration {
   svg {
     path {
-      transform: translateY(100%);
+      //transform: translateY(100%);
     }
   }
 }

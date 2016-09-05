@@ -16,14 +16,14 @@ StnNavigation = {
         $(window).bind('mousewheel DOMMouseScroll', function(event){
             // scroll up
             if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-                
-                console.log(timeline.currentLabel());
+                // if(StnNavigation.canReverse(timeline.currentLabel()) == false) return false;
+                // console.log(timeline.currentLabel());
                 timeline.reverse();
                 return;
             }
             // scroll down
             else {
-                console.log(timeline.currentLabel());
+                // console.log(timeline.currentLabel());
                 timeline.play();
                 return;
             }
@@ -34,6 +34,8 @@ StnNavigation = {
             switch(e.which) {
                 // arrow up key
                 case 38:
+                    // console.log(StnNavigation.canReverse(timeline.currentLabel()))
+                    // if(StnNavigation.canReverse(timeline.currentLabel()) == false) return false;
                     timeline.reverse();
                     return;
                 // arrow down key
@@ -46,5 +48,9 @@ StnNavigation = {
             }
             e.preventDefault(); // prevent the default action (scroll / move caret)
         });
+    },
+    canReverse: function(label) {
+        // return label != 'fade-up-cresus';
+        return true;
     }
 }

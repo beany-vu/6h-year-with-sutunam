@@ -5,8 +5,33 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 window.onload = function() {
-    var container_lion = document.getElementById('container-lion');
-    var lion = document.getElementsByClassName('lion');
+    var container_lion = undefined,
+        lion = undefined,
+        container_current_ill = undefined;
+        Stn.current_slide_index = undefined;
+     var hidden_content = undefined;
+    container_lion = document.getElementById('container-lion');
+    
+    lion = document.getElementsByClassName('lion');
+    
+    container_current_ill = Raphael('container-current-illustration');
+    container_current_ill.setViewBox(0, 0, 1920, 1080, true);
+    var current_ill = Slider.setPaper(Slider.drawCresus(container_current_ill));
+    hidden_content = Raphael('container-hidden-illustration');
+    hidden_content.setViewBox(0, 0, 1920, 1080, true);
+    hidden_content.setSize('100%', '100%');
+    //----------------------------
+    Slider.slidesData.push(Slider.drawCresus(hidden_content));
+    //-----------------------------
+    Slider.slidesData.push(Slider.drawDurance(hidden_content));
+    //-----------------------------
+    Slider.slidesData.push(Slider.drawBYS(hidden_content));
+    //------------------------------
+    Slider.slidesData.push(Slider.drawClub75(hidden_content));
+    //-----------------------------
+    Slider.slidesData.push(Slider.drawRenault(hidden_content));
+    
+    
     if (typeof lion != 'undefined') {
         var lion_qty_piece = lion.length,
             type = 8,
@@ -41,12 +66,11 @@ window.onload = function() {
     timeline.add('txt2-to-txt3', 5.5);
     timeline.add('txt3-to-txt4', 6.5);
     timeline.add('float-up-lion',7.5);
-    timeline.add('float-up-lion', 8.7);
+
 
     timeline.addPause('txt2-to-txt3');
     timeline.addPause('txt3-to-txt4');
     timeline.addPause('float-up-lion');
-    timeline.addPause('fade-up-cresus');
 
     // specify timeline
     timeline.to(document.getElementById('overlay-lion'), 0.1, {opacity: 1}, 'lion');
@@ -90,7 +114,7 @@ window.onload = function() {
     timeline.to(document.getElementsByClassName('recombine8'), 1.7, {y: '-60%', ease: Power1.easeIn},'float-up-lion');
     timeline.to(container_lion, 1.7, {opacity: 0, ease:  Sine.easeInOut}, 'float-up-lion');
     timeline.to(document.getElementById('heading'), 1, {opacity: 0}, 'float-up-lion');
-    timeline.to(document.getElementById('heading-txt-small'), 1, {opacity: 0,}, 'float-up-lion');
+    timeline.to(document.getElementById('heading-txt-small'), 1, {opacity: 0}, 'float-up-lion');
     timeline.to(document.getElementById('button-lion'), 1, {opacity: 0}, 'float-up-lion');
     timeline.to(document.getElementById('container-triangle'), 1.7, {opacity: 0}, 'float-up-lion');
     timeline.to(document.getElementById('triangle1'), 1.7, {y: '-100%', ease: Power1.easeIn}, 'float-up-lion');
@@ -100,13 +124,14 @@ window.onload = function() {
     timeline.to(document.getElementById('triangle5'), 1.7, {y: '-100%', ease: Power1.easeIn}, 'float-up-lion');
     timeline.to(document.getElementById('triangle6'), 1.7, {y: '-100%', ease: Power1.easeIn}, 'float-up-lion');
     timeline.to(document.getElementById('overlay-lion'), 0.1, {opacity: 0}, 'float-up-lion');
-    timeline.to(container_lion, 1, {opacity: 0, ease: Power1.easeIn}, 'float-up-lion');
-    timeline.to(document.getElementById('background-cresus'), 1, {opacity: 1, ease: Power1.easeIn}, 'float-up-lion');
-    timeline.play();
-    
-    var container_current_ill = Raphael('container-current-illustration');
-    container_current_ill.setViewBox(0, 0, 1920, 1080, true);
-    var current_ill = Illustration.drawCresus(container_current_ill);
-    // Illustration.fadeInUp(current_ill, 250, 0);
+    timeline.to(document.getElementById('background-cresus'), 2, {opacity: 1, ease: Power1.easeOut}, 'float-up-lion');
+    timeline.add(function() {
+        Slider.fadeInUp(Slider.getPaper());
+    }, 'float-up-lion');
+    timeline.to(document.getElementById('container-current-illustration'), 2, {opacity: 1, ease: Power1.easeIn}, 'float-up-lion');
+
+
     StnNavigation.detectNextPrev(timeline, 'scroll-btn');
+
+    timeline.play();
 }
