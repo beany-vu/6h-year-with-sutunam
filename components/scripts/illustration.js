@@ -5,6 +5,12 @@
 var Slider = {
     current_slide_index: 0,
     slidesData : [],
+    backgroundData: ['#221f26', '#EE5688', '#AB39DB', '#157C80', '#A90806'],
+    backgroundTxt: [document.querySelector('#txt-cresus p'),
+        document.querySelector('#txt-durance p'),
+        document.querySelector('#txt-bys p'),
+        document.querySelector('#txt-club75 p'),
+        document.querySelector('txt-renault p')],
     paper: undefined,
     drawCresus: function (rsr) {
     rsr.setStart();
@@ -1630,16 +1636,38 @@ var Slider = {
         }
         return object1;
     },
+    updateBackground: function() {
+        TweenLite.to(document.getElementById("background-illustration"), 1.5, {backgroundColor: this.backgroundData[this.current_slide_index]});
+    },
+    updateBackgroundTxt: function() {
+        var el = this.backgroundTxt[this.current_slide_index];
+        TweenLite.fromTo(el.childNodes[1], 1, {x: '-100%'}, {x: '100%', ease: Power4.easeOut});
+        TweenLite.to(el.childNodes[1], 0.5, {opacity: 0, ease: Power4.easeOut});
+        TweenLite.to(el.childNodes[1], 0, {opacity: 1, ease: Power4.easeOut}).delay(1);
+        TweenLite.fromTo(el, 0.9, {width: '0%'}, {width: '100%', ease: Power4.easeOut}).delay(1);
+    },
+    init: function() {
+        this.current_slide_index = 0;
+        Slider.fadeInUp(Slider.getPaper());
+        this.updateBackground();
+        document.getElementById('prj-txt-bg').classList.remove('disabled');
+        TweenLite.fromTo(this.backgroundTxt[this.current_slide_index].childNodes[0], 1, {y: '3%', opacity: 0}, {y: '0%', opacity: 1, ease: Linear.easeOut}).delay(0.6);
+
+    },
     next: function() {
          var i = this.current_slide_index,
              j = (i == 4 ? 0 : i+1);
-        this.morph(this.getPaper(), this.slidesData[j], 1000);
+        this.morph(this.getPaper(), this.slidesData[j], 1500);
         this.current_slide_index = j;
+        this.updateBackground();
+        this.updateBackgroundTxt();
     },
     prev: function() {
         var i = this.current_slide_index,
             j = (i == 0 ? 4 : i-1);
-        this.morph(this.getPaper(), this.slidesData[j], 1000);
+        this.morph(this.getPaper(), this.slidesData[j], 1500);
         this.current_slide_index = j;
+        this.updateBackground();
+        this.updateBackgroundTxt();
     }
 }

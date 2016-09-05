@@ -7,29 +7,25 @@ document.addEventListener("DOMContentLoaded", function() {
 window.onload = function() {
     var container_lion = undefined,
         lion = undefined,
-        container_current_ill = undefined;
+        container_ill = undefined;
         Stn.current_slide_index = undefined;
-     var hidden_content = undefined;
     container_lion = document.getElementById('container-lion');
     
     lion = document.getElementsByClassName('lion');
     
-    container_current_ill = Raphael('container-current-illustration');
-    container_current_ill.setViewBox(0, 0, 1920, 1080, true);
-    var current_ill = Slider.setPaper(Slider.drawCresus(container_current_ill));
-    hidden_content = Raphael('container-hidden-illustration');
-    hidden_content.setViewBox(0, 0, 1920, 1080, true);
-    hidden_content.setSize('100%', '100%');
+    container_ill = Raphael('container-illustration');
+    container_ill.setViewBox(0, 0, 1920, 1080, true);
+    var current_ill = Slider.setPaper(Slider.drawCresus(container_ill));
     //----------------------------
-    Slider.slidesData.push(Slider.drawCresus(hidden_content));
+    Slider.slidesData.push(Slider.drawCresus(container_ill).hide());
     //-----------------------------
-    Slider.slidesData.push(Slider.drawDurance(hidden_content));
+    Slider.slidesData.push(Slider.drawDurance(container_ill).hide());
     //-----------------------------
-    Slider.slidesData.push(Slider.drawBYS(hidden_content));
+    Slider.slidesData.push(Slider.drawBYS(container_ill).hide());
     //------------------------------
-    Slider.slidesData.push(Slider.drawClub75(hidden_content));
+    Slider.slidesData.push(Slider.drawClub75(container_ill).hide());
     //-----------------------------
-    Slider.slidesData.push(Slider.drawRenault(hidden_content));
+    Slider.slidesData.push(Slider.drawRenault(container_ill).hide());
     
     
     if (typeof lion != 'undefined') {
@@ -124,11 +120,11 @@ window.onload = function() {
     timeline.to(document.getElementById('triangle5'), 1.7, {y: '-100%', ease: Power1.easeIn}, 'float-up-lion');
     timeline.to(document.getElementById('triangle6'), 1.7, {y: '-100%', ease: Power1.easeIn}, 'float-up-lion');
     timeline.to(document.getElementById('overlay-lion'), 0.1, {opacity: 0}, 'float-up-lion');
-    timeline.to(document.getElementById('background-cresus'), 2, {opacity: 1, ease: Power1.easeOut}, 'float-up-lion');
+    timeline.to(document.getElementById('illustration'), 2, {opacity: 1, ease: Power1.easeOut}, 'float-up-lion');
+    timeline.to(document.getElementById('container-illustration'), 2, {opacity: 1, ease: Power1.easeIn}, 'float-up-lion');
     timeline.add(function() {
-        Slider.fadeInUp(Slider.getPaper());
+        Slider.init();
     }, 'float-up-lion');
-    timeline.to(document.getElementById('container-current-illustration'), 2, {opacity: 1, ease: Power1.easeIn}, 'float-up-lion');
 
 
     StnNavigation.detectNextPrev(timeline, 'scroll-btn');

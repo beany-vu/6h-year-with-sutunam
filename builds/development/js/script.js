@@ -68,29 +68,25 @@ document.addEventListener("DOMContentLoaded", function() {
 window.onload = function() {
     var container_lion = undefined,
         lion = undefined,
-        container_current_ill = undefined;
+        container_ill = undefined;
         Stn.current_slide_index = undefined;
-     var hidden_content = undefined;
     container_lion = document.getElementById('container-lion');
     
     lion = document.getElementsByClassName('lion');
     
-    container_current_ill = Raphael('container-current-illustration');
-    container_current_ill.setViewBox(0, 0, 1920, 1080, true);
-    var current_ill = Slider.setPaper(Slider.drawCresus(container_current_ill));
-    hidden_content = Raphael('container-hidden-illustration');
-    hidden_content.setViewBox(0, 0, 1920, 1080, true);
-    hidden_content.setSize('100%', '100%');
+    container_ill = Raphael('container-illustration');
+    container_ill.setViewBox(0, 0, 1920, 1080, true);
+    var current_ill = Slider.setPaper(Slider.drawCresus(container_ill));
     //----------------------------
-    Slider.slidesData.push(Slider.drawCresus(hidden_content));
+    Slider.slidesData.push(Slider.drawCresus(container_ill).hide());
     //-----------------------------
-    Slider.slidesData.push(Slider.drawDurance(hidden_content));
+    Slider.slidesData.push(Slider.drawDurance(container_ill).hide());
     //-----------------------------
-    Slider.slidesData.push(Slider.drawBYS(hidden_content));
+    Slider.slidesData.push(Slider.drawBYS(container_ill).hide());
     //------------------------------
-    Slider.slidesData.push(Slider.drawClub75(hidden_content));
+    Slider.slidesData.push(Slider.drawClub75(container_ill).hide());
     //-----------------------------
-    Slider.slidesData.push(Slider.drawRenault(hidden_content));
+    Slider.slidesData.push(Slider.drawRenault(container_ill).hide());
     
     
     if (typeof lion != 'undefined') {
@@ -185,11 +181,11 @@ window.onload = function() {
     timeline.to(document.getElementById('triangle5'), 1.7, {y: '-100%', ease: Power1.easeIn}, 'float-up-lion');
     timeline.to(document.getElementById('triangle6'), 1.7, {y: '-100%', ease: Power1.easeIn}, 'float-up-lion');
     timeline.to(document.getElementById('overlay-lion'), 0.1, {opacity: 0}, 'float-up-lion');
-    timeline.to(document.getElementById('background-cresus'), 2, {opacity: 1, ease: Power1.easeOut}, 'float-up-lion');
+    timeline.to(document.getElementById('illustration'), 2, {opacity: 1, ease: Power1.easeOut}, 'float-up-lion');
+    timeline.to(document.getElementById('container-illustration'), 2, {opacity: 1, ease: Power1.easeIn}, 'float-up-lion');
     timeline.add(function() {
-        Slider.fadeInUp(Slider.getPaper());
+        Slider.init();
     }, 'float-up-lion');
-    timeline.to(document.getElementById('container-current-illustration'), 2, {opacity: 1, ease: Power1.easeIn}, 'float-up-lion');
 
 
     StnNavigation.detectNextPrev(timeline, 'scroll-btn');
@@ -205,6 +201,12 @@ window.onload = function() {
 var Slider = {
     current_slide_index: 0,
     slidesData : [],
+    backgroundData: ['#221f26', '#EE5688', '#AB39DB', '#157C80', '#A90806'],
+    backgroundTxt: [document.querySelector('#txt-cresus p'),
+        document.querySelector('#txt-durance p'),
+        document.querySelector('#txt-bys p'),
+        document.querySelector('#txt-club75 p'),
+        document.querySelector('txt-renault p')],
     paper: undefined,
     drawCresus: function (rsr) {
     rsr.setStart();
@@ -1830,16 +1832,38 @@ var Slider = {
         }
         return object1;
     },
+    updateBackground: function() {
+        TweenLite.to(document.getElementById("background-illustration"), 1.5, {backgroundColor: this.backgroundData[this.current_slide_index]});
+    },
+    updateBackgroundTxt: function() {
+        var el = this.backgroundTxt[this.current_slide_index];
+        TweenLite.fromTo(el.childNodes[1], 1, {x: '-100%'}, {x: '100%', ease: Power4.easeOut});
+        TweenLite.to(el.childNodes[1], 0.5, {opacity: 0, ease: Power4.easeOut});
+        TweenLite.to(el.childNodes[1], 0, {opacity: 1, ease: Power4.easeOut}).delay(1);
+        TweenLite.fromTo(el, 0.9, {width: '0%'}, {width: '100%', ease: Power4.easeOut}).delay(1);
+    },
+    init: function() {
+        this.current_slide_index = 0;
+        Slider.fadeInUp(Slider.getPaper());
+        this.updateBackground();
+        document.getElementById('prj-txt-bg').classList.remove('disabled');
+        TweenLite.fromTo(this.backgroundTxt[this.current_slide_index].childNodes[0], 1, {y: '3%', opacity: 0}, {y: '0%', opacity: 1, ease: Linear.easeOut}).delay(0.6);
+
+    },
     next: function() {
          var i = this.current_slide_index,
              j = (i == 4 ? 0 : i+1);
-        this.morph(this.getPaper(), this.slidesData[j], 1000);
+        this.morph(this.getPaper(), this.slidesData[j], 1500);
         this.current_slide_index = j;
+        this.updateBackground();
+        this.updateBackgroundTxt();
     },
     prev: function() {
         var i = this.current_slide_index,
             j = (i == 0 ? 4 : i-1);
-        this.morph(this.getPaper(), this.slidesData[j], 1000);
+        this.morph(this.getPaper(), this.slidesData[j], 1500);
         this.current_slide_index = j;
+        this.updateBackground();
+        this.updateBackgroundTxt();
     }
 }

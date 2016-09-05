@@ -115,6 +115,75 @@
   .container-heading h1 {
     text-align: center; }
 
+.prj-txt-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  contain: strict;
+  visibility: visible; }
+  .prj-txt-bg.disabled {
+    visibility: hidden; }
+  .prj-txt-bg div[class^='txt-'] {
+    position: fixed;
+    top: 40%;
+    left: 10%; }
+  .prj-txt-bg div[class^='txt-'] p {
+    position: relative;
+    overflow: hidden;
+    will-change: width; }
+  .prj-txt-bg div[class^='txt-'] p .text-cover {
+    position: absolute;
+    content: "";
+    top: 15%;
+    right: 0;
+    bottom: 10%;
+    left: 0;
+    transform: translateX(-100%); }
+
+#txt-cresus .text-brand {
+  color: rgba(254, 255, 255, 0.11); }
+
+#txt-cresus .text-cover {
+  background: #EE5688; }
+
+#txt-durance .text-brand {
+  color: rgba(254, 255, 255, 0.11); }
+
+#txt-durance .text-cover {
+  background: #AB39DB; }
+
+#txt-bys .text-brand {
+  color: rgba(254, 255, 255, 0.11); }
+
+#txt-bys .text-cover {
+  background: #157C80; }
+
+#txt-club75 .text-brand {
+  color: rgba(254, 255, 255, 0.11); }
+
+#txt-club75 .text-cover {
+  background: #A90806; }
+
+#txt-renault .text-brand {
+  color: rgba(254, 255, 255, 0.11); }
+
+#txt-renault .text-cover {
+  background: #221f26; }
+
+.prj-txt-bg div[class^='txt-'] .text-brand {
+  display: inline-block;
+  margin: 0;
+  font-size: 12.5vw;
+  font-family: 'gotham-black';
+  letter-spacing: 0.2em;
+  line-height: 100%;
+  overflow: hidden;
+  opacity: 0;
+  white-space: nowrap; }
+
 .heading-lion h1 {
   font-weight: 100; }
 
@@ -204,9 +273,19 @@
     letter-spacing: 2px; }
 
 .background-cresus {
-  background: #221f26;
   opacity: 0; }
 
-.container-current-illustration,
-.container-hidden-illustration {
+.background-durance {
+  background: #EE5688; }
+
+.background-bys {
+  background: #AB39DB; }
+
+.background-club75 {
+  background: #157C80; }
+
+.background-renault {
+  background: #A90806; }
+
+.container-illustration {
   opacity: 0; }
