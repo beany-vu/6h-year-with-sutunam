@@ -202,3 +202,13 @@
     color: #93340e;
     font-size: 7px;
     letter-spacing: 2px; }
+
+.background-cresus {
+  background: #221f26;
+  opacity: 0; }
+
+.container-current-illustration {
+  opacity: 0; }
+
+.container-current-illustration svg path {
+  transform: translateY(100%); }

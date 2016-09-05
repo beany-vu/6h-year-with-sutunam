@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 window.onload = function() {
+    var container_lion = document.getElementById('container-lion');
     var lion = document.getElementsByClassName('lion');
     if (typeof lion != 'undefined') {
         var lion_qty_piece = lion.length,
@@ -39,11 +40,13 @@ window.onload = function() {
     timeline.add('scroll-btn', 4.5);
     timeline.add('txt2-to-txt3', 5.5);
     timeline.add('txt3-to-txt4', 6.5);
-    timeline.add('float-up-lion',7.5)
+    timeline.add('float-up-lion',7.5);
+    timeline.add('float-up-lion', 8.7);
 
     timeline.addPause('txt2-to-txt3');
     timeline.addPause('txt3-to-txt4');
     timeline.addPause('float-up-lion');
+    timeline.addPause('fade-up-cresus');
 
     // specify timeline
     timeline.to(document.getElementById('overlay-lion'), 0.1, {opacity: 1}, 'lion');
@@ -85,7 +88,7 @@ window.onload = function() {
     timeline.to(document.getElementsByClassName('recombine6'), 1.5, {y: '-60%', ease: Power1.easeIn},'float-up-lion');
     timeline.to(document.getElementsByClassName('recombine7'), 1.6, {y: '-60%', ease: Power1.easeIn},'float-up-lion');
     timeline.to(document.getElementsByClassName('recombine8'), 1.7, {y: '-60%', ease: Power1.easeIn},'float-up-lion');
-    timeline.to(document.getElementById('container-lion'), 1.7, {opacity: 0, ease:  Sine.easeInOut}, 'float-up-lion');
+    timeline.to(container_lion, 1.7, {opacity: 0, ease:  Sine.easeInOut}, 'float-up-lion');
     timeline.to(document.getElementById('heading'), 1, {opacity: 0}, 'float-up-lion');
     timeline.to(document.getElementById('heading-txt-small'), 1, {opacity: 0,}, 'float-up-lion');
     timeline.to(document.getElementById('button-lion'), 1, {opacity: 0}, 'float-up-lion');
@@ -97,8 +100,13 @@ window.onload = function() {
     timeline.to(document.getElementById('triangle5'), 1.7, {y: '-100%', ease: Power1.easeIn}, 'float-up-lion');
     timeline.to(document.getElementById('triangle6'), 1.7, {y: '-100%', ease: Power1.easeIn}, 'float-up-lion');
     timeline.to(document.getElementById('overlay-lion'), 0.1, {opacity: 0}, 'float-up-lion');
-
+    timeline.to(container_lion, 1, {opacity: 0, ease: Power1.easeIn}, 'float-up-lion');
+    timeline.to(document.getElementById('background-cresus'), 1, {opacity: 1, ease: Power1.easeIn}, 'float-up-lion');
     timeline.play();
+    
+    var container_current_ill = Raphael('container-current-illustration');
+    container_current_ill.setViewBox(0, 0, 1920, 1080, true);
+    var current_ill = Illustration.drawCresus(container_current_ill);
+    // Illustration.fadeInUp(current_ill, 250, 0);
     StnNavigation.detectNextPrev(timeline, 'scroll-btn');
-
 }

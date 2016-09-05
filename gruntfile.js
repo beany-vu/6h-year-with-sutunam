@@ -7,7 +7,9 @@ module.exports = function(grunt) {
         banner: '\n\n//------------------------------------------\n'
       },
       dist : {
-        src: ['components/scripts/*.js'],
+        src: ['components/scripts/stn_lib.js',
+              'components/scripts/home.js',
+              'components/scripts/illustration.js'],
         dest: 'builds/development/js/script.js'
       }
     }, //concat
