@@ -1,3 +1,5 @@
+@import "core/vars";
+@import "core/mixin";
 @import "core/font";
 @import "core/z-index";
 @import "core/keyframe";
@@ -5,5 +7,6 @@
 @import "block/overlay";
 @import "block/heading";
 @import "block/prj-background-text";
+@import "block/prj-info";
 
 @import "page/home";

@@ -1,3 +1,4 @@
+/* Media queries breakpoints */
 @font-face {
   font-family: "gotham-black";
   src: url("../fonts/gotham-black.eot");
@@ -64,6 +65,9 @@
 .container-overlay .overlay {
   z-index: 2; }
 
+.prj-txt-bg {
+  z-index: 10; }
+
 @keyframes scroll-wheel {
   0% {
     -moz-transform: translate3d(0, 0, 0);
@@ -121,7 +125,6 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 10;
   contain: strict;
   visibility: visible; }
   .prj-txt-bg.disabled {
@@ -183,6 +186,105 @@
   overflow: hidden;
   opacity: 0;
   white-space: nowrap; }
+
+.prj_wrapper .prj {
+  position: fixed;
+  top: 50%;
+  left: 15%;
+  opacity: 0; }
+  .prj_wrapper .prj .prj_detail {
+    transform: translateY(25%); }
+  .prj_wrapper .prj .prj_desc {
+    transform: translateY(25%); }
+  .prj_wrapper .prj.prj-cresus .prj_desc p {
+    color: #aa804e; }
+    .prj_wrapper .prj.prj-cresus .prj_desc p:after {
+      background: #aa804e; }
+  .prj_wrapper .prj.prj-cresus .prj_detail .btn-more {
+    border-color: rgba(105, 96, 117, 0.3); }
+    .prj_wrapper .prj.prj-cresus .prj_detail .btn-more:hover {
+      border-color: white;
+      background: #fff;
+      color: #221f26; }
+  .prj_wrapper .prj.prj-durance .prj_desc p {
+    color: #f6c709; }
+    .prj_wrapper .prj.prj-durance .prj_desc p:after {
+      background: #f6c709; }
+  .prj_wrapper .prj.prj-durance .prj_detail .btn-more {
+    border-color: rgba(255, 176, 202, 0.3); }
+    .prj_wrapper .prj.prj-durance .prj_detail .btn-more:hover {
+      border-color: white;
+      background: #fff;
+      color: #ee5285; }
+  .prj_wrapper .prj.prj-bys .prj_desc p {
+    color: #282a3f; }
+    .prj_wrapper .prj.prj-bys .prj_desc p:after {
+      background: #282a3f; }
+  .prj_wrapper .prj.prj-bys .prj_detail .btn-more {
+    border-color: rgba(224, 151, 255, 0.3); }
+    .prj_wrapper .prj.prj-bys .prj_detail .btn-more:hover {
+      border-color: white;
+      background: #fff;
+      color: #ad3cdc; }
+  .prj_wrapper .prj.prj-club75 .prj_desc p {
+    color: #d1ff00; }
+    .prj_wrapper .prj.prj-club75 .prj_desc p:after {
+      background: #d1ff00; }
+  .prj_wrapper .prj.prj-club75 .prj_detail .btn-more {
+    border-color: rgba(49, 203, 209, 0.3); }
+    .prj_wrapper .prj.prj-club75 .prj_detail .btn-more:hover {
+      border-color: white;
+      background: #fff;
+      color: #168185; }
+  .prj_wrapper .prj.prj-renault .prj_desc p {
+    color: #f64847; }
+    .prj_wrapper .prj.prj-renault .prj_desc p:after {
+      background: #f64847; }
+  .prj_wrapper .prj.prj-renault .prj_detail .btn-more {
+    border-color: rgba(253, 117, 115, 0.3); }
+    .prj_wrapper .prj.prj-renault .prj_detail .btn-more:hover {
+      border-color: white;
+      background: #fff;
+      color: #ae0b09; }
+  .prj_wrapper .prj .prj_desc {
+    overflow: hidden;
+    padding-left: 30px;
+    margin-top: 0;
+    font-size: 13px;
+    text-transform: uppercase; }
+    .prj_wrapper .prj .prj_desc p {
+      padding-bottom: 10px;
+      color: #514032;
+      position: relative;
+      font-family: 'gotham-medium';
+      font-size: 12px;
+      letter-spacing: 0.2em; }
+      @media only screen and (max-width: 479px) {
+        .prj_wrapper .prj .prj_desc p {
+          font-size: 11px; } }
+      .prj_wrapper .prj .prj_desc p:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 205px;
+        height: 1px;
+        background: #514032; }
+  .prj_wrapper .prj .prj_detail {
+    overflow: hidden;
+    margin: 35px 0 0 25px;
+    text-transform: uppercase; }
+    .prj_wrapper .prj .prj_detail a {
+      color: #fff; }
+    .prj_wrapper .prj .prj_detail .btn-more {
+      letter-spacing: 0.1em;
+      font-family: 'gotham-medium';
+      display: inline-block;
+      text-transform: uppercase;
+      border-color: #696576;
+      font-size: 11px;
+      padding: 11px 42px; }
 
 .heading-lion h1 {
   font-weight: 100; }

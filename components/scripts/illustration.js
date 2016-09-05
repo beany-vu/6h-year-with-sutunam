@@ -10,7 +10,12 @@ var Slider = {
         document.querySelector('#txt-durance p'),
         document.querySelector('#txt-bys p'),
         document.querySelector('#txt-club75 p'),
-        document.querySelector('txt-renault p')],
+        document.querySelector('#txt-renault p')],
+    prjInfo: [document.getElementById('prj1'),
+        document.getElementById('prj2'),
+        document.getElementById('prj3'),
+        document.getElementById('prj4'),
+        document.getElementById('prj5'),],
     paper: undefined,
     drawCresus: function (rsr) {
     rsr.setStart();
@@ -1639,12 +1644,23 @@ var Slider = {
     updateBackground: function() {
         TweenLite.to(document.getElementById("background-illustration"), 1.5, {backgroundColor: this.backgroundData[this.current_slide_index]});
     },
-    updateBackgroundTxt: function() {
-        var el = this.backgroundTxt[this.current_slide_index];
-        TweenLite.fromTo(el.childNodes[1], 1, {x: '-100%'}, {x: '100%', ease: Power4.easeOut});
-        TweenLite.to(el.childNodes[1], 0.5, {opacity: 0, ease: Power4.easeOut});
-        TweenLite.to(el.childNodes[1], 0, {opacity: 1, ease: Power4.easeOut}).delay(1);
-        TweenLite.fromTo(el, 0.9, {width: '0%'}, {width: '100%', ease: Power4.easeOut}).delay(1);
+    updateBackgroundTxt: function(i, j) {
+        var el1 = this.backgroundTxt[i],
+            el2 = this.backgroundTxt[j];
+        TweenLite.fromTo(el1.childNodes[1], 1, {x: '-100%'}, {x: '100%', ease: Power4.easeOut});
+        TweenLite.to(el1.childNodes[0], 0.5, {opacity: 0, ease: Power4.easeOut});
+        TweenLite.to(el2.childNodes[0], 0, {opacity: 1, ease: Power4.easeOut}).delay(1);
+        TweenLite.fromTo(el2, 0.9, {width: '0%'}, {width: '100%', ease: Power4.easeOut}).delay(1);
+    },
+    updatePrjInfo: function(i, j) {
+            var el1 = this.prjInfo[i],
+                el2 = this.prjInfo[j];
+            TweenLite.to(el1, 1, {opacity: '0', ease: Linear.easeOut});         
+            TweenLite.fromTo(el1.childNodes[1], 1, {y: '0%', ease: Linear.easeOut}, {y: '-25%', ease: Linear.easeOut});
+            TweenLite.fromTo(el1.childNodes[3], 1, {y: '0%', ease: Linear.easeOut}, {y: '-25%', ease: Linear.easeOut});
+            TweenLite.to(el2, 1, {opacity: '1', ease: Linear.easeOut});  
+            TweenLite.fromTo(el2.childNodes[1], 1, {y: '25%', ease: Linear.easeOut}, {y: '0%', ease: Linear.easeOut});
+            TweenLite.fromTo(el2.childNodes[3], 1, {y: '25%', ease: Linear.easeOut}, {y: '0%', ease: Linear.easeOut});
     },
     init: function() {
         this.current_slide_index = 0;
@@ -1652,22 +1668,31 @@ var Slider = {
         this.updateBackground();
         document.getElementById('prj-txt-bg').classList.remove('disabled');
         TweenLite.fromTo(this.backgroundTxt[this.current_slide_index].childNodes[0], 1, {y: '3%', opacity: 0}, {y: '0%', opacity: 1, ease: Linear.easeOut}).delay(0.6);
-
+        TweenLite.to(this.prjInfo[this.current_slide_index], 1, {opacity: 1, ease: Linear.easeOut});
     },
     next: function() {
          var i = this.current_slide_index,
-             j = (i == 4 ? 0 : i+1);
-        this.morph(this.getPaper(), this.slidesData[j], 1500);
+             j = (i == 4 ? 0 : i+1),
+             that = this;
+        setTimeout(function() {
+            that.morph(that.getPaper(), that.slidesData[j], 1500);
+        }, 1200);
+   
         this.current_slide_index = j;
         this.updateBackground();
-        this.updateBackgroundTxt();
+        this.updateBackgroundTxt(i, j);
+        this.updatePrjInfo(i, j);
     },
     prev: function() {
         var i = this.current_slide_index,
-            j = (i == 0 ? 4 : i-1);
-        this.morph(this.getPaper(), this.slidesData[j], 1500);
+            j = (i == 0 ? 4 : i-1),
+            that = this;
+        setTimeout(function() {
+            that.morph(that.getPaper(), that.slidesData[j], 1500);
+        }, 1200);
         this.current_slide_index = j;
         this.updateBackground();
-        this.updateBackgroundTxt();
+        this.updateBackgroundTxt(i, j);
+        this.updatePrjInfo(i, j);
     }
 }
