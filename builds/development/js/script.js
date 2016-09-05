@@ -183,11 +183,24 @@ window.onload = function() {
     timeline.to(document.getElementById('overlay-lion'), 0.1, {opacity: 0}, 'float-up-lion');
     timeline.to(document.getElementById('illustration'), 2, {opacity: 1, ease: Power1.easeOut}, 'float-up-lion');
     timeline.to(document.getElementById('container-illustration'), 2, {opacity: 1, ease: Power1.easeIn}, 'float-up-lion');
+    var slide_control = document.getElementsByClassName('slide-control');
     timeline.add(function() {
         Slider.init();
+        setTimeout(function() {
+            timeline.set(slide_control[0], {className: '+=draw-arrow'});
+        }, 1000);
+        setTimeout(function() {
+            timeline.set(slide_control[1], {className: '+=draw-arrow'});
+        }, 2500);
+        slide_control[0].addEventListener('click', function() {
+            Slider.prev();
+        })
+        slide_control[1].addEventListener('click', function() {
+            Slider.prev();
+        })
     }, 'float-up-lion');
-
-
+     timeline.to(slide_control, 1, {opacity: 1, ease: Power1.easeIn}, 'float-up-lion');
+     
     StnNavigation.detectNextPrev(timeline, 'scroll-btn');
 
     timeline.play();
@@ -1872,7 +1885,7 @@ var Slider = {
              that = this;
         setTimeout(function() {
             that.morph(that.getPaper(), that.slidesData[j], 1500);
-        }, 1200);
+        }, 1500);
    
         this.current_slide_index = j;
         this.updateBackground();
@@ -1885,7 +1898,7 @@ var Slider = {
             that = this;
         setTimeout(function() {
             that.morph(that.getPaper(), that.slidesData[j], 1500);
-        }, 1200);
+        }, 1500);
         this.current_slide_index = j;
         this.updateBackground();
         this.updateBackgroundTxt(i, j);

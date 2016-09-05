@@ -1676,7 +1676,7 @@ var Slider = {
              that = this;
         setTimeout(function() {
             that.morph(that.getPaper(), that.slidesData[j], 1500);
-        }, 1200);
+        }, 1500);
    
         this.current_slide_index = j;
         this.updateBackground();
@@ -1689,7 +1689,7 @@ var Slider = {
             that = this;
         setTimeout(function() {
             that.morph(that.getPaper(), that.slidesData[j], 1500);
-        }, 1200);
+        }, 1500);
         this.current_slide_index = j;
         this.updateBackground();
         this.updateBackgroundTxt(i, j);
