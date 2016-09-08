@@ -196,7 +196,7 @@ window.onload = function() {
             Slider.prev();
         })
         slide_control[1].addEventListener('click', function() {
-            Slider.prev();
+            Slider.next();
         })
     }, 'float-up-lion');
      timeline.to(slide_control, 1, {opacity: 1, ease: Power1.easeIn}, 'float-up-lion');
@@ -1853,10 +1853,10 @@ var Slider = {
     updateBackground: function() {
         TweenLite.to(document.getElementById("background-illustration"), 1.5, {backgroundColor: this.backgroundData[this.current_slide_index]});
     },
-    updateBackgroundTxt: function(i, j) {
+    updateBackgroundTxt: function(i, j, v) {
         var el1 = this.backgroundTxt[i],
             el2 = this.backgroundTxt[j];
-        TweenLite.fromTo(el1.childNodes[1], 1, {x: '-100%'}, {x: '100%', ease: Power4.easeOut});
+        TweenLite.fromTo(this.backgroundTxt[v].childNodes[1], 1, {x: '-100%'}, {x: '100%', ease: Power4.easeOut});
         TweenLite.to(el1.childNodes[0], 0.5, {opacity: 0, ease: Power4.easeOut});
         TweenLite.to(el2.childNodes[0], 0, {opacity: 1, ease: Power4.easeOut}).delay(1);
         TweenLite.fromTo(el2, 0.9, {width: '0%'}, {width: '100%', ease: Power4.easeOut}).delay(1);
@@ -1889,19 +1889,31 @@ var Slider = {
    
         this.current_slide_index = j;
         this.updateBackground();
-        this.updateBackgroundTxt(i, j);
+        this.updateBackgroundTxt(i, j, i);
         this.updatePrjInfo(i, j);
     },
     prev: function() {
         var i = this.current_slide_index,
             j = (i == 0 ? 4 : i-1),
+            variance = 0
             that = this;
+        switch(i) {
+            case 0:
+                variance = 3;
+                break;
+            case 1:
+                variance = 4;
+                break;
+            default:
+                variance = i - 2;
+                break;
+        }
         setTimeout(function() {
             that.morph(that.getPaper(), that.slidesData[j], 1500);
         }, 1500);
         this.current_slide_index = j;
         this.updateBackground();
-        this.updateBackgroundTxt(i, j);
+        this.updateBackgroundTxt(i, j, variance);
         this.updatePrjInfo(i, j);
     }
 }

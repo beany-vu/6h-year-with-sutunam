@@ -135,7 +135,7 @@ window.onload = function() {
             Slider.prev();
         })
         slide_control[1].addEventListener('click', function() {
-            Slider.prev();
+            Slider.next();
         })
     }, 'float-up-lion');
      timeline.to(slide_control, 1, {opacity: 1, ease: Power1.easeIn}, 'float-up-lion');
