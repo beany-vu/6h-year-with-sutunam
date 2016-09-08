@@ -1818,7 +1818,7 @@ var Slider = {
             var nagative_y = 1000 * Math.random();
             element.attr({'transform': 'T0,' + nagative_y});
             fade_in_el = Raphael.animation({
-                transform: 't0,0'
+                transform: 'T0,0'
             }, duration, 'cubic-bezier(0.23, 1, 0.32, 1)');
             element.animate(fade_in_el);
         });
@@ -1836,9 +1836,8 @@ var Slider = {
             max = object2.length;
         var i = 0,
             animation = undefined;
-        for (i = 0; i < max; i++) {
+        for (i; i < max; i++) {
             if (object1[i] && object2[i]) {
-                Raphael.count = 0;
                 animation = Raphael.animation({
                     'path': object2[i].attr('path').toString(),
                     'fill-opacity': object2[i].attr('fill-opacity'),
@@ -1847,15 +1846,16 @@ var Slider = {
                     'stroke-miterlimit': object2[i].attr('stroke-miterlimit'),
                     'stroke': object2[i].attr('stroke'),
                     'fill': object2[i].attr('fill'),
-                    transform: object2[i].attr('transform'),
+                    'transform': object2[i].attr('transform'),
                     'opacity': object2[i].attr('opacity'),
                     'easing': 'cubic-bezier(0.39, 0.575, 0.565, 1)'
                 }, duration);
                 object1[i].animate(animation);
             }
         }
+        delete object1;
+        delete object2;
         delete animation;
-        return object1;
     },
     updateBackground: function() {
         TweenLite.to(document.getElementById("background-illustration"), 1.5, {backgroundColor: this.backgroundData[this.current_slide_index]});
@@ -1871,12 +1871,19 @@ var Slider = {
     updatePrjInfo: function(i, j) {
             var el1 = this.prjInfo[i],
                 el2 = this.prjInfo[j];
-            TweenLite.to(el1, 1, {opacity: '0', ease: Linear.easeOut});         
+            TweenLite.to(document.getElementsByClassName('prj'), 1, {opacity: 0, ease: Linear.easeOut, onComplete: this.setVisibility, onCompleteParams: [document.getElementsByClassName('prj'), 'hidden']});
             TweenLite.fromTo(el1.childNodes[1], 1, {y: '0%', ease: Linear.easeOut}, {y: '-25%', ease: Linear.easeOut});
             TweenLite.fromTo(el1.childNodes[3], 1, {y: '0%', ease: Linear.easeOut}, {y: '-25%', ease: Linear.easeOut});
-            TweenLite.to(el2, 1, {opacity: '1', ease: Linear.easeOut});  
+            TweenLite.to(el2, 1, {opacity: 1, ease: Linear.easeOut,  onComplete: this.setVisibility, onCompleteParams: [el2, 'visible']});
             TweenLite.fromTo(el2.childNodes[1], 1, {y: '25%', ease: Linear.easeOut}, {y: '0%', ease: Linear.easeOut});
             TweenLite.fromTo(el2.childNodes[3], 1, {y: '25%', ease: Linear.easeOut}, {y: '0%', ease: Linear.easeOut});
+    },
+    setVisibility: function(el, p) {
+        var l = el.length,
+            i = 0;
+        for(i; i < l; i++) {
+            el[i].style.visibility = p;
+        }
     },
     init: function() {
         this.current_slide_index = 0;
