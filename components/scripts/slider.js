@@ -1639,6 +1639,7 @@ var Slider = {
                 object1[i].animate(animation);
             }
         }
+        delete animation;
         return object1;
     },
     updateBackground: function() {

@@ -1,12 +1,14 @@
 @import "core/vars";
+@import "core/common";
 @import "core/mixin";
 @import "core/font";
 @import "core/z-index";
 @import "core/keyframe";
 
-@import "block/overlay";
-@import "block/heading";
-@import "block/prj-background-text";
-@import "block/prj-info";
+@import "block/home-overlay";
+@import "block/home-heading";
+@import "block/home-prj-background-text";
+@import "block/home-prj-info";
+@import "block/home-nav";
 
 @import "page/home";

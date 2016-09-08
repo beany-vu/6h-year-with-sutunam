@@ -122,6 +122,12 @@ window.onload = function() {
     timeline.to(document.getElementById('overlay-lion'), 0.1, {opacity: 0}, 'float-up-lion');
     timeline.to(document.getElementById('illustration'), 2, {opacity: 1, ease: Power1.easeOut}, 'float-up-lion');
     timeline.to(document.getElementById('container-illustration'), 2, {opacity: 1, ease: Power1.easeIn}, 'float-up-lion');
+    timeline.to(document.getElementById('nav'), 1, {opacity: 1, ease: Power3.easeOut}, 'float-up-lion');
+    timeline.to(document.getElementById('slogan'), 2.6, {y: '-50%', ease: Power3.easeOut}, 'float-up-lion');
+    timeline.to(document.getElementById('about-href'), 2.3, {y: 0, ease: Power3.easeOut}, 'float-up-lion');
+    timeline.to(document.getElementById('social-fb'), 2.9, {y: 0, ease: Power3.easeOut}, 'float-up-lion');
+    timeline.to(document.getElementById('social-tt'), 3, {y: 0, ease: Power3.easeOut}, 'float-up-lion');
+
     var slide_control = document.getElementsByClassName('slide-control');
     timeline.add(function() {
         Slider.init();
