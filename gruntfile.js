@@ -8,7 +8,8 @@ module.exports = function(grunt) {
       },
       dist : {
         src: ['components/scripts/stn_lib.js',
-              'components/scripts/home.js',
+              'components/scripts/about.js',
+              'components/scripts/script.js',
               'components/scripts/slider.js'],
         dest: 'builds/development/js/script.js'
       }

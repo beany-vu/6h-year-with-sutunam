@@ -1638,12 +1638,11 @@ var Slider = {
                 object1[i].animate(animation);
             }
         }
-        delete object1;
         delete object2;
         delete animation;
     },
     updateBackground: function() {
-        TweenLite.to(document.getElementById("background-illustration"), 1.5, {backgroundColor: this.backgroundData[this.current_slide_index]});
+        TweenLite.to(document.getElementById("background-illustration"), 1, {backgroundColor: this.backgroundData[this.current_slide_index]});
     },
     updateBackgroundTxt: function(i, j, v) {
         var el1 = this.backgroundTxt[i],
@@ -1714,7 +1713,7 @@ var Slider = {
                 break;
         }
         setTimeout(function() {
-            that.morph(that.getPaper(), that.slidesData[j], 1500);
+            that.morph(that.getPaper(), that.slidesData[j], 1300);
         }, 1500);
         this.current_slide_index = j;
         this.updateBackground();
