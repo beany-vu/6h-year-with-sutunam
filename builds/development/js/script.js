@@ -1871,19 +1871,25 @@ var Slider = {
     updatePrjInfo: function(i, j) {
             var el1 = this.prjInfo[i],
                 el2 = this.prjInfo[j];
-            TweenLite.to(document.getElementsByClassName('prj'), 1, {opacity: 0, ease: Linear.easeOut, onComplete: this.setVisibility, onCompleteParams: [document.getElementsByClassName('prj'), 'hidden']});
+            TweenLite.to(document.getElementsByClassName('prj'), 1, {opacity: 0, ease: Linear.easeOut, onComplete: this.popEl, onCompleteParams: [document.getElementsByClassName('prj'), '0']});
             TweenLite.fromTo(el1.childNodes[1], 1, {y: '0%', ease: Linear.easeOut}, {y: '-25%', ease: Linear.easeOut});
             TweenLite.fromTo(el1.childNodes[3], 1, {y: '0%', ease: Linear.easeOut}, {y: '-25%', ease: Linear.easeOut});
-            TweenLite.to(el2, 1, {opacity: 1, ease: Linear.easeOut,  onComplete: this.setVisibility, onCompleteParams: [el2, 'visible']});
+            TweenLite.to(el2, 1, {opacity: 1, ease: Linear.easeOut,  onComplete: this.popEl, onCompleteParams: [el2, '1']});
             TweenLite.fromTo(el2.childNodes[1], 1, {y: '25%', ease: Linear.easeOut}, {y: '0%', ease: Linear.easeOut});
             TweenLite.fromTo(el2.childNodes[3], 1, {y: '25%', ease: Linear.easeOut}, {y: '0%', ease: Linear.easeOut});
     },
-    setVisibility: function(el, p) {
-        var l = el.length,
-            i = 0;
-        for(i; i < l; i++) {
-            el[i].style.visibility = p;
+    popEl: function(el, p) {
+        if(el instanceof Array) {
+            var l = el.length,
+                i = 0;
+            for(i; i < l; i++) {
+                el[i].style.zIndex = p;
+            }
         }
+        else {
+            el.style.zIndex = p;
+        }
+
     },
     init: function() {
         this.current_slide_index = 0;
