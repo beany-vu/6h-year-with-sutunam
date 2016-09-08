@@ -1,6 +1,5 @@
 module.exports = function(grunt) {
   grunt.initConfig({
-
     concat : {
       options: {
         separator: '\n\n//------------------------------------------\n',
@@ -14,7 +13,17 @@ module.exports = function(grunt) {
         dest: 'builds/development/js/script.js'
       }
     }, //concat
+    uglify: {
+      options: {
+        mangle: false
+      },
+      my_target: {
+        files: {
+          'builds/development/js/script.min.js': ['builds/development/js/script.js'],
 
+        }
+      }
+    },
     bower_concat: {
       all: {
         dest: 'builds/development/js/_bower.js',
@@ -66,7 +75,7 @@ module.exports = function(grunt) {
 
 
   }); //initConfig
-
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -74,6 +83,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-wiredep');
   grunt.loadNpmTasks('grunt-bower-concat');
 
-  grunt.registerTask('default', ['wiredep', 'bower_concat', 'concat', 'sass', 'connect', 'watch']);
+  grunt.registerTask('default', ['wiredep', 'bower_concat', 'uglify','concat', 'sass', 'connect', 'watch']);
 
 }; //wrapper function

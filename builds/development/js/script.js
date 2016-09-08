@@ -21,7 +21,7 @@ StnNavigation = {
             if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
                 // if(StnNavigation.canReverse(timeline.currentLabel()) == false) return false;
                 // console.log(timeline.currentLabel());
-                timeline.reverse();
+                // timeline.reverse();
                 return;
             }
             // scroll down
@@ -39,7 +39,7 @@ StnNavigation = {
                 case 38:
                     // console.log(StnNavigation.canReverse(timeline.currentLabel()))
                     // if(StnNavigation.canReverse(timeline.currentLabel()) == false) return false;
-                    timeline.reverse();
+                    // timeline.reverse();
                     return;
                 // arrow down key
                 case 40:
